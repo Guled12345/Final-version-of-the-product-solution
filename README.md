@@ -1,10 +1,9 @@
 # EduScan Somalia – Offline & Online Learning Risk App
 
-A comprehensive learning difficulty detection system designed specifically for Somali students, built with modern web technologies and machine learning.
+EduScan Somalia is a thoughtful and practical APP built to support Somali students by helping identify learning difficulties early on. Using modern web technologies and machine learning, the system provides educators and parents with insights that can lead to timely support.
 
 ## 🎯 Project Overview
-
-**EduScan Somalia** is an intelligent web-based application that helps detect learning difficulties among Somali students using machine learning. Originally designed as an offline-first desktop application, this version has been transformed into a modern web application for better accessibility and deployment.
+EduScan Somalia started as a simple offline desktop app, but has now evolved into a fully accessible web application. It’s designed to make it easier for teachers and parents to spot early signs of learning challenges, with a clean interface and intelligent tools tailored for the Somali education context.
 
 ### Key Features
 - **Learning Risk Prediction**: ML-powered assessment using academic scores and behavioral metrics
@@ -159,8 +158,8 @@ Expected Output: **High Risk** with intervention recommendations
 
 For questions, issues, or contributions, please contact:
 - **Project Lead**: Guled Hassan
-- **Institution**: [Your University]
-- **Email**: [Your Email]
+- **Institution**: ALU
+- **Email**: g.warsameh@alustudent.com
 - **Year**: Final Year Project 2025
 
 ## 📄 License
