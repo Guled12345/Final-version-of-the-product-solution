@@ -7,7 +7,6 @@
 
 Designed for **teachers and parents**, it runs **offline** (as a `.exe` or `.py`) but also supports optional online sync. It includes risk prediction, educational resources, a parent tracker, and reporting tools — all tailored for the Somali education system.
 
-
 ## 2  🖥 How to Install & Run (Windows)
 
 ```bash
@@ -30,7 +29,7 @@ dist\EduScan_Somalia.exe
 ⚠️ Keep the following files/folders in the same directory as the .exe or main.py:
 
 app_images/
-
+```
 learning_difficulty_detector.pkl
 
 3  🎯 Features Demo (Add These to Your Video)
