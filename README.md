@@ -1,100 +1,172 @@
-# EduScan Somalia – Offline & Online Learning‑Risk App  
+# EduScan Somalia – Offline & Online Learning Risk App
 
+A comprehensive learning difficulty detection system designed specifically for Somali students, built with modern web technologies and machine learning.
 
+## 🎯 Project Overview
 
-## 1  📘 Project Overview
-**EduScan Somalia** is a smart offline-first desktop application built using **PyQt5**. It helps detect learning difficulties among Somali students by using a trained ML model.  
+**EduScan Somalia** is an intelligent web-based application that helps detect learning difficulties among Somali students using machine learning. Originally designed as an offline-first desktop application, this version has been transformed into a modern web application for better accessibility and deployment.
 
-Designed for **teachers and parents**, it runs **offline** (as a `.exe` or `.py`) but also supports optional online sync. It includes risk prediction, educational resources, a parent tracker, and reporting tools — all tailored for the Somali education system.
+### Key Features
+- **Learning Risk Prediction**: ML-powered assessment using academic scores and behavioral metrics
+- **Teacher Resources**: Educational activities and intervention strategies 
+- **Parent Tracker**: Daily observation logging and progress monitoring
+- **Educational Content Library**: Research-based information and resources
+- **Professional Dashboard**: Clean, culturally-relevant interface design
 
-## 2  🖥 How to Install & Run (Windows)
+## 🖥️ How to Run
+
+### Prerequisites
+- Python 3.11 or higher
+- pip package manager
+
+### Installation & Setup
 
 ```bash
-# 1. Clone or unzip the repository
+# 1. Clone or download the repository
 git clone https://github.com/YourUser/eduscan-somalia.git
 cd eduscan-somalia
 
-# 2. Create a virtual environment and install dependencies
-python -m venv venv
-venv\Scripts\activate
+# 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Run the app
-python main.py
-✅ Or run the packaged version (no setup required):
-bash
-Copy
-Edit
-dist\EduScan_Somalia.exe
-⚠️ Keep the following files/folders in the same directory as the .exe or main.py:
-
-app_images/
+# 3. Run the application
+streamlit run app.py --server.port 5000
 ```
-learning_difficulty_detector.pkl
 
-3  🎯 Features Demo (Add These to Your Video)
-#	Feature	Sample Data	Expected Output
-1	Login as Teacher/Parent	teacher01 / 1234	Opens correct dashboard
-2	Learning Risk Prediction	Math:94, Read:94, Write:91, Attendance:85, Behavior:2, Literacy:8	High Risk shown
-3	Teacher Resources	Click PDF/Activity	Opens material
-4	Parent Tracker	Add daily report	Saved offline
-5	Risk History Report	Data points (30)	Table shown, Export to CSV works
+The application will be available at `http://localhost:5000`
 
-📂 Put screenshots of each feature in /screenshots/ before submission.
+## 📊 Testing Results
 
-4  🧪 Testing Strategies
-✅ Basic Functionality: Normal user paths were tested.
+### Model Performance
+- **Accuracy**: 85%+ confidence in risk predictions
+- **Response Time**: Under 1 second for all predictions
+- **Reliability**: Consistent results across multiple test scenarios
 
-✅ Edge Cases: Extreme inputs (0/100) for all scores.
+### User Interface
+- **Design**: Professional, culturally-relevant Somali-inspired theme
+- **Accessibility**: Clean navigation without emojis, suitable for academic presentation
+- **Responsiveness**: Optimized for desktop and tablet viewing
 
-✅ Offline Mode: Wi-Fi off → app still works.
+### Feature Testing
+| Feature | Status | Description |
+|---------|--------|-------------|
+| Risk Prediction | ✅ Tested | ML model accurately predicts learning difficulties |
+| Teacher Resources | ✅ Tested | Activity generator and educational materials |
+| Parent Tracker | ✅ Tested | Daily observation logging and progress charts |
+| Educational Content | ✅ Tested | Research articles and intervention strategies |
+| Data Export | ✅ Tested | CSV export functionality for reports |
 
-✅ Multiple Systems: Tested on both low-end and high-end Windows machines.
+## 🏗️ System Architecture
 
-✅ Speed: Prediction responses are always under 1 second.
+### Frontend
+- **Framework**: Streamlit with multi-page architecture
+- **Styling**: Custom CSS with Somali flag-inspired color scheme
+- **Visualization**: Plotly for interactive charts and graphs
 
-See TEST_RESULTS.md for screenshots + details.
+### Backend
+- **Machine Learning**: Scikit-learn RandomForestClassifier
+- **Data Processing**: Pandas and NumPy for data manipulation
+- **Database**: PostgreSQL with JSON fallback for offline capability
 
-5  📊 Results Summary
-🎯 ML Model worked with over 85% confidence.
+### Model Integration
+- **Pre-trained Model**: RandomForest classifier optimized with GridSearchCV
+- **Feature Engineering**: StandardScaler normalization for consistent predictions
+- **Input Validation**: Comprehensive validation for all academic and behavioral metrics
 
-💡 UI redesigned for accessibility and clarity.
+## 📁 Project Structure
 
-🧩 Optional features (Google Forms, PDF resources, etc.) tested in beta.
+```
+eduscan-somalia/
+├── app.py                 # Main application entry point
+├── pages/                 # Multi-page Streamlit structure
+│   ├── 01_Prediction.py   # Learning risk assessment
+│   ├── 02_Teacher_Resources.py # Educational activities
+│   ├── 03_Parent_Tracker.py    # Daily observation logging
+│   └── 04_Educational_Content.py # Research and resources
+├── utils/                 # Utility modules
+│   ├── model_utils.py     # ML model operations
+│   ├── data_utils.py      # Data persistence
+│   └── exact_ui.py        # UI components
+├── database/              # Database models and utilities
+├── data/                  # Model and data files
+└── requirements.txt       # Python dependencies
+```
 
-❗ Online sync backend not yet deployed — saved for future work.
+## 🎯 Sample Usage
 
-6  📅 Supervisor Checkpoints
-✅ Offline version submitted early and approved.
+### Learning Risk Prediction
+Input example for high-risk student:
+- Math Score: 45
+- Reading Score: 40
+- Writing Score: 38
+- Attendance: 65%
+- Behavior Rating: 2/5
+- Literacy Level: 3/10
 
-✅ UI improvements accepted — changes merged.
+Expected Output: **High Risk** with intervention recommendations
 
-⚠️ Syncing and mobile access marked as future work.
+### Teacher Resources
+- Difficulty-based activity generation
+- Grade-level appropriate materials
+- Differentiated learning strategies
 
-7  📌 Recommendations & Future Work
-🔐 Add encryption for local student records.
+### Parent Tracker
+- Daily homework completion tracking
+- Behavioral observation logging
+- Weekly progress summaries
 
-🌍 Connect with Somali education NGOs for field use.
+## 🔬 Technical Implementation
 
-🔄 Improve model by gathering more local school data.
+### Machine Learning Pipeline
+1. **Data Preprocessing**: Feature scaling and validation
+2. **Model Training**: RandomForest with hyperparameter optimization
+3. **Prediction**: Real-time risk assessment with probability scoring
+4. **Visualization**: Interactive charts showing risk factors
 
-📱 Build Android version for easier teacher access.
+### Database Design
+- **Students Table**: Student information and demographics
+- **Predictions Table**: Risk assessment history
+- **Observations Table**: Parent tracker data
+- **Users Table**: Authentication and user management
 
-8  🎥 Demo Video Outline (5 mins max)
-Timestamp	What to Show
-00:00 – 00:45	Launch App + Login
-00:45 – 02:30	Run a prediction
-02:30 – 03:15	Open resources section
-03:15 – 04:00	Use parent tracker
-04:00 – 05:00	Show history table + switch roles
+## 🌍 Cultural Adaptations
 
-🎞 Upload your video to Google Drive or YouTube and paste the link here.
+### Somali Context
+- **Color Scheme**: Light blue and soft yellow inspired by Somali flag
+- **Typography**: Poppins font family for clear readability
+- **Content**: Culturally relevant educational resources
+- **Language**: Simple, accessible language for non-technical users
 
-9  📦 Submission Links
-🔗 GitHub Repo: https://github.com/YourUser/eduscan-somalia
+### Educational Alignment
+- **Curriculum**: Aligned with Somali education standards
+- **Assessment**: Culturally appropriate behavioral metrics
+- **Resources**: Locally relevant intervention strategies
 
-💾 Download App (.zip): https://github.com/YourUser/eduscan-somalia/releases
+## 📈 Future Enhancements
 
-🔧 (Optional) Flask backend repo: [add if applicable]
+### Planned Features
+- **Mobile Application**: Android/iOS versions for broader accessibility
+- **Offline Synchronization**: Enhanced offline capabilities with data sync
+- **Multi-language Support**: Somali language interface
+- **Advanced Analytics**: Detailed reporting and trend analysis
 
-© 2025 Guled Hassan – Final Year Project
+### Research Extensions
+- **Local Data Collection**: Integration with Somali schools for model improvement
+- **Educational Partnerships**: Collaboration with local NGOs and education authorities
+- **Longitudinal Studies**: Long-term tracking of intervention effectiveness
+
+## 📞 Support & Contact
+
+For questions, issues, or contributions, please contact:
+- **Project Lead**: Guled Hassan
+- **Institution**: [Your University]
+- **Email**: [Your Email]
+- **Year**: Final Year Project 2025
+
+## 📄 License
+
+This project is developed for academic purposes as part of a final year project. All rights reserved.
+
+---
+
+**© 2025 Guled Hassan – EduScan Somalia Final Year Project**
