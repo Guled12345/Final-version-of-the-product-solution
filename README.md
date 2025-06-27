@@ -1,137 +1,101 @@
-EduScan Somalia – Offline & Online Learning‑Risk App
+# EduScan Somalia – Offline & Online Learning‑Risk App  
 
-1  Project Overview
 
-A cross‑platform desktop application (PyQt5) that predicts potential learning difficulties in Somali students and provides resources for teachers and parents. The system runs offline (bundled .exe) and can optionally sync to a lightweight Flask API when internet is available.
 
-2  Installation & Run (Windows)
+## 1  📘 Project Overview
+**EduScan Somalia** is a smart offline-first desktop application built using **PyQt5**. It helps detect learning difficulties among Somali students by using a trained ML model.  
 
-# 1  Clone / unzip the repo
-> git clone https://github.com/YourUser/eduscan-somalia.git
-> cd eduscan-somalia
+Designed for **teachers and parents**, it runs **offline** (as a `.exe` or `.py`) but also supports optional online sync. It includes risk prediction, educational resources, a parent tracker, and reporting tools — all tailored for the Somali education system.
 
-# 2  Create a virtual‑env & install deps
-> python -m venv venv
-> venv\Scripts\activate
-> pip install -r requirements.txt
 
-# 3  Run the application
-> python main.py
+## 2  🖥 How to Install & Run (Windows)
 
-# OR download the one‑file build
-> dist\EduScan_Somalia.exe
+```bash
+# 1. Clone or unzip the repository
+git clone https://github.com/YourUser/eduscan-somalia.git
+cd eduscan-somalia
 
-Note: The app_images/ folder must stay beside main.py or inside the same directory as the .exe build.
+# 2. Create a virtual environment and install dependencies
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
 
-3  Core Features (Demo Focus)
+# 3. Run the app
+python main.py
+✅ Or run the packaged version (no setup required):
+bash
+Copy
+Edit
+dist\EduScan_Somalia.exe
+⚠️ Keep the following files/folders in the same directory as the .exe or main.py:
 
- # 
+app_images/
 
-Feature
+learning_difficulty_detector.pkl
 
-Test Data Used
+3  🎯 Features Demo (Add These to Your Video)
+#	Feature	Sample Data	Expected Output
+1	Login as Teacher/Parent	teacher01 / 1234	Opens correct dashboard
+2	Learning Risk Prediction	Math:94, Read:94, Write:91, Attendance:85, Behavior:2, Literacy:8	High Risk shown
+3	Teacher Resources	Click PDF/Activity	Opens material
+4	Parent Tracker	Add daily report	Saved offline
+5	Risk History Report	Data points (30)	Table shown, Export to CSV works
 
-Outcome
+📂 Put screenshots of each feature in /screenshots/ before submission.
 
-1
+4  🧪 Testing Strategies
+✅ Basic Functionality: Normal user paths were tested.
 
-Teacher/Parent Login (no emojis)
+✅ Edge Cases: Extreme inputs (0/100) for all scores.
 
-Test user: teacher01 / 1234
+✅ Offline Mode: Wi-Fi off → app still works.
 
-Dashboard loads with teacher role
+✅ Multiple Systems: Tested on both low-end and high-end Windows machines.
 
-2
+✅ Speed: Prediction responses are always under 1 second.
 
-Learning‑Risk Prediction
+See TEST_RESULTS.md for screenshots + details.
 
-Math 94  Reading 94  Writing 91  Attendance 85  Behavior 2  Literacy 8
+5  📊 Results Summary
+🎯 ML Model worked with over 85% confidence.
 
-App correctly labels High Risk
+💡 UI redesigned for accessibility and clarity.
 
-3
+🧩 Optional features (Google Forms, PDF resources, etc.) tested in beta.
 
-Teacher Resources Page
+❗ Online sync backend not yet deployed — saved for future work.
 
-PDFs open, activity list loads
+6  📅 Supervisor Checkpoints
+✅ Offline version submitted early and approved.
 
-Links & downloads work offline
+✅ UI improvements accepted — changes merged.
 
-4
+⚠️ Syncing and mobile access marked as future work.
 
-Parent Tracker
+7  📌 Recommendations & Future Work
+🔐 Add encryption for local student records.
 
-Daily log saved to local SQLite
+🌍 Connect with Somali education NGOs for field use.
 
-Table updates instantly
+🔄 Improve model by gathering more local school data.
 
-5
+📱 Build Android version for easier teacher access.
 
-History & Reports
+8  🎥 Demo Video Outline (5 mins max)
+Timestamp	What to Show
+00:00 – 00:45	Launch App + Login
+00:45 – 02:30	Run a prediction
+02:30 – 03:15	Open resources section
+03:15 – 04:00	Use parent tracker
+04:00 – 05:00	Show history table + switch roles
 
-30 dummy rows
+🎞 Upload your video to Google Drive or YouTube and paste the link here.
 
-Sorting & CSV export OK
+9  📦 Submission Links
+🔗 GitHub Repo: https://github.com/YourUser/eduscan-somalia
 
-(Add screenshots for each row in /screenshots/ before final submission.)
+💾 Download App (.zip): https://github.com/YourUser/eduscan-somalia/releases
 
-4  Testing Strategy
+🔧 (Optional) Flask backend repo: [add if applicable]
 
-Black‑box Functional Testing – verify each screen behaves per requirements.
-
-Boundary Value Testing – enter 0 and 100 for scores, behaviour 1–5, literacy 1–10.
-
-Offline vs Online Mode – run with wifi disabled → forces local .pkl; enable wifi → tests cloud sync.
-
-Hardware Diversity – tested on a low‑end Intel i3 laptop (4 GB RAM) and on a Ryzen 7 desktop (16 GB). No performance lag.
-
-Performance Check – prediction latency measured ≤ 60 ms on both machines.
-
-Screenshots are saved in screenshots/ and referenced in TEST_RESULTS.md.
-
-5  Analysis of Results
-
-Accuracy goal met: model replicates ≈ 89 % F1‑score on unseen validation set.
-
-Usability improvements: card UI and Somalian colour palette improved readability.
-
-Objective Miss: did not finish cloud history export due to time; logged as future work.
-
-6  Discussion with Supervisor
-
-Milestone 1 – Offline MVP delivered ahead of schedule; supervisor confirmed functional parity.Milestone 2 – UI overhaul completed; positive feedback on visual clarity.Milestone 3 – Cloud sync deferred; agreed as acceptable future‑work item.
-
-7  Recommendations & Future Work
-
-Community Deployment: package the .exe via Itch.io for rural teachers with limited bandwidth.
-
-Data Privacy: integrate AES‑encrypted local DB for student data.
-
-Model Retraining: periodic re‑train with larger Somali datasets to reduce bias.
-
-Mobile Companion App: PWA or Flutter port for quick parent check‑ins.
-
-8  Video Demo (≈ 5 min)
-
-00 : 00 – Login & Dashboard
-
-00 : 45 – Risk Prediction (show boundary values)
-
-02 : 30 – Teacher Resources & PDF download
-
-03 : 15 – Parent Tracker update
-
-04 : 00 – History & Settings; offline vs online mode
-
-(Upload the final MP4 to Google Drive / YouTube unlisted; paste link here.)
-
-9  Deployed / Build Links
-
-Windows .exe – EduScan_Somalia_1.0.zip
-
-Source Repo – https://github.com/YourUser/eduscan-somalia
-
-(Optional online demo if converted to Flask/Gradio)
-
-© 2025 — Guled Hassan — Somaliland University Thesis Project
-
+© 2025 Guled Hassan – Final Year Project
