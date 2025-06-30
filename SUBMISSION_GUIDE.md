@@ -121,23 +121,6 @@ eduscan-somalia-submission/
 
 ---
 
-## 🎥 Demo Video Outline (5 minutes)
-
-### Timestamp Guide
-| Time | Content | Key Points |
-|------|---------|------------|
-| 0:00-0:45 | **Application Launch** | Show professional interface, cultural design |
-| 0:45-2:30 | **Risk Prediction Demo** | Input student data, show ML prediction results |
-| 2:30-3:15 | **Teacher Resources** | Activity generator, educational materials |
-| 3:15-4:00 | **Parent Tracker** | Daily logging, progress charts |
-| 4:00-5:00 | **Data & Reports** | Export functionality, historical data |
-
-### Recording Tips
-- **Screen Resolution**: 1920x1080 for clarity
-- **Audio**: Clear narration explaining each feature
-- **Navigation**: Smooth transitions between features
-- **Data**: Use realistic sample data for demonstrations
-
 ---
 
 ## 📧 Submission Deliverables
